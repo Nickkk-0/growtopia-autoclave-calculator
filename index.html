@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growtopia Autoclave Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Growtopia Autoclave Simulator 🔧</h1>
+
+    <div class="section">
+        <label><strong>Input Method:</strong></label>
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <button id="btnManual" onclick="setMethod('manual')" style="background: #0056b3;">Manual Input</button>
+            <button id="btnPacks" onclick="setMethod('packs')" style="background: #007bff;">Master Surgeon Packs</button>
+        </div>
+        <input type="hidden" id="inputMethod" value="manual">
+    </div>
+
+    <div id="packsSection" class="section" style="display: none;">
+        <h3>Pack Inventory</h3>
+        <label>Number of Master Surgeon Packs:</label>
+        <input type="number" id="packCount" value="0" min="0">
+    </div>
+
+    <div id="manualSection" class="section">
+        <h3>Current Inventory</h3>
+        <div id="inventoryGrid"></div>
+    </div>
+
+    <div class="section">
+        <h3>Blacklist 🔒</h3>
+        <p style="font-size: 0.9em; margin-top: 0;">Check the tools you want to keep and NEVER autoclave.</p>
+        <div id="blacklistGrid" class="grid"></div>
+    </div>
+
+    <div class="section">
+        <h3>Market Prices (in WLs) 📈</h3>
+        <p style="font-size: 0.9em; margin-top: 0;">Tip: You can type fractions directly! (e.g., type 1/200)</p>
+        
+        <div id="pricesGrid"></div> 
+        
+        <div id="packPricesSection" style="display: none; margin-top: 20px;">
+            <hr>
+            <label>Cost of ONE Master Surgeon Pack (WLs):</label>
+            <input type="text" id="packCost" value="0">
+            <br><br>
+            <label>Selling price for 1 Surg-E (WLs):</label>
+            <input type="text" id="surgEPrice" value="0">
+        </div>
+    </div>
+
+    <button onclick="runSimulation()">Simulate Autoclave & Calculate Profit</button>
+
+    <div class="section" id="resultsSection" style="display: none; margin-top: 20px; background: #e8f4fd; border-color: #b8daff;">
+        <h2>Autoclave Results</h2>
+        <div id="inventoryResult"></div>
+        <hr>
+        <h3>Profitability Analysis</h3>
+        <div id="profitResult"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

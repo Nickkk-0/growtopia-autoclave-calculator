@@ -1,0 +1,166 @@
+/* --- Global Variables for Easy Color Changes --- */
+:root {
+    --bg-color: #f4f7f6;
+    --panel-bg: #ffffff;
+    --text-main: #2c3e50;
+    --text-muted: #7f8c8d;
+    --primary-blue: #007bff;
+    --primary-hover: #0056b3;
+    --border-color: #e0e6ed;
+    --success-green: #27ae60;
+    --danger-red: #c0392b;
+}
+
+/* --- Base Body Styling --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+h2, h3 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- Dashboard Panels (.section) --- */
+.section {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+}
+
+/* --- Inputs and Sliders --- */
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fafbfc;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    background-color: #ffffff;
+}
+
+/* Makes the sliders match your primary color */
+input[type="range"] {
+    accent-color: var(--primary-blue);
+    height: 6px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* --- Buttons --- */
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    transition: background 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
+
+/* The main Simulate button gets a cool gradient */
+button[onclick="runSimulation()"] {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+button[onclick="runSimulation()"]:hover {
+    background: linear-gradient(135deg, #0056b3, #003d82);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: scale(0.98) !important;
+}
+
+/* Top Toggle Buttons */
+#btnManual, #btnPacks {
+    border-radius: 6px;
+    box-shadow: none;
+    font-size: 16px;
+    padding: 12px;
+}
+
+/* --- Checkboxes (Blacklist) --- */
+input[type="checkbox"] {
+    transform: scale(1.3);
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: var(--danger-red); /* Makes the lock icon theme red */
+}
+
+/* Arrange the checkboxes neatly */
+#blacklistGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 15px;
+}
+
+/* --- Results Section Customization --- */
+#resultsSection {
+    background: #f0f8ff;
+    border-left: 6px solid var(--primary-blue);
+}
+
+.profit {
+    color: var(--success-green);
+    font-weight: 800;
+    font-size: 1.4em;
+    padding: 12px;
+    background: rgba(39, 174, 96, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+.loss {
+    color: var(--danger-red);
+    font-weight: 800;
+    font-size: 1.4em;
+    padding: 12px;
+    background: rgba(192, 57, 43, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(192, 57, 43, 0.3);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 20px 0;
+}
