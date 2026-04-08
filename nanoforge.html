@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growtopia Nanoforge Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Back to Hub</a>
+
+    <h1>Growtopia Nanoforge Simulator 🌌</h1>
+
+    <div class="section">
+        <label><strong>Input Method:</strong></label>
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <button id="btnManual" onclick="setMethod('manual')" style="background: #0056b3;">Manual Input</button>
+            <button id="btnPacks" onclick="setMethod('packs')" style="background: #007bff;">Galactic Goodies Packs</button>
+        </div>
+        <input type="hidden" id="inputMethod" value="manual">
+    </div>
+
+    <div id="packsSection" class="section" style="display: none;">
+        <h3>Pack Inventory</h3>
+        <label>Number of Galactic Goodies Packs:</label>
+        <input type="number" id="packCount" value="0" min="0">
+    </div>
+
+    <div id="manualSection" class="section">
+        <h3>Current Inventory</h3>
+        <div id="inventoryGrid"></div>
+    </div>
+
+    <div class="section">
+        <h3>Blacklist 🔒</h3>
+        <p style="font-size: 0.9em; margin-top: 0;">Check the tools you want to keep and NEVER nanoforge.</p>
+        <div id="blacklistGrid" class="grid"></div>
+    </div>
+
+    <div class="section">
+        <h3>Market Prices (in WLs) 📈</h3>
+        <p style="font-size: 0.9em; margin-top: 0;">Tip: You can type fractions directly! (e.g., type 1/200)</p>
+        
+        <div id="pricesGrid"></div> 
+        
+        <div id="packPricesSection" style="display: none; margin-top: 20px;">
+            <hr>
+            <label>Cost of ONE Galactic Goodies Pack (WLs):</label>
+            <input type="text" id="packCost" value="0">
+            <br><br>
+            <label>Selling price for 1 Star Fuel (WLs):</label>
+            <input type="text" id="starFuelPrice" value="0">
+        </div>
+    </div>
+
+    <button onclick="runSimulation()">Simulate Nanoforge & Calculate Profit</button>
+
+    <div class="section" id="resultsSection" style="display: none; margin-top: 20px; background: #e8f4fd; border-color: #b8daff;">
+        <h2>Nanoforge Results</h2>
+        <div id="inventoryResult"></div>
+        <hr>
+        <h3>Profitability Analysis</h3>
+        <div id="profitResult"></div>
+    </div>
+
+    <script src="nanoforge_script.js"></script>
+    <a href="index.html" class="back-btn">← Back to Hub</a>
+</body>
+</html>

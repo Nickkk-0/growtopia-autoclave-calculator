@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Tool Shop Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Back to Hub</a>
+
+    <h1>Star Tool Shop Calculator 🛒</h1>
+
+    <div class="section">
+        <h3>Pack Investment</h3>
+        <label>Number of Galactic Goodies Packs Bought:</label>
+        <input type="number" id="packCount" value="0" min="0" style="margin-bottom: 15px;">
+        
+        <label>Cost per Pack (WLs):</label>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <input type="range" id="slider_packCost" min="0" max="100" step="0.1" value="0" style="flex-grow: 1;" oninput="document.getElementById('packCost').value = this.value">
+            <input type="text" id="packCost" value="0" style="width: 80px;" oninput="document.getElementById('slider_packCost').value = parsePrice(this.value)">
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Selling Prices (in WLs) 📈</h3>
+        <p style="font-size: 0.9em; margin-top: 0;">Tip: You can type fractions directly! (e.g., type 1/200)</p>
+        
+        <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #ddd;">
+            <label style="width: 160px; font-weight: bold; color: #007bff;">Star Fuel:</label>
+            <input type="range" id="slider_surgE" min="0" max="20" step="0.01" value="0" style="flex-grow: 1;" oninput="document.getElementById('starFuelprice').value = this.value">
+            <input type="text" id="starFuelprice" value="0" style="width: 80px;" oninput="document.getElementById('slider_surgE').value = parsePrice(this.value)">
+        </div>
+
+        <div id="pricesGrid"></div> 
+    </div>
+
+    <button onclick="calculateShop()">Calculate Shop Profit</button>
+
+    <div class="section" id="resultsSection" style="display: none; margin-top: 20px; background: #e8f4fd; border-color: #b8daff;">
+        <h3>Profitability Analysis</h3>
+        <div id="profitResult"></div>
+    </div>
+
+    <script src="star_shop_script.js"></script>
+    <a href="index.html" class="back-btn">← Back to Hub</a>
+</body>
+</html>
