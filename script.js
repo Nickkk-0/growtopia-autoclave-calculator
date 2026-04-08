@@ -1,6 +1,6 @@
 const tools = [
     "stitches", "antibiotics", "sponge", "scalpel",
-    "anaesthetic", "clamp", "defibrillator", "pins",
+    "anesthetic", "clamp", "defibrillator", "pins",
     "splint", "antiseptic", "labkit", "ultrasound", "transfusion"
 ];
 
